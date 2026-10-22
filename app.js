@@ -830,7 +830,9 @@ const actions = {
 
 async function syncItemsFromServer() {
   try {
-    const response = await fetch(`${API_BASE}/api/items`);
+    const response = await fetch(`${API_BASE}/api/items`, {
+      headers: authHeaders()
+    });
     const result = await response.json();
 
     if (!response.ok || !result.success || !Array.isArray(result.items)) {

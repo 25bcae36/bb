@@ -1,4 +1,4 @@
-/* BorrowBox · landing page: log in, register, demo account */
+/* BorrowBox · landing page: log in and register */
 
 initData();
 
@@ -98,13 +98,3 @@ form.addEventListener('submit', async e => {
   }
 });
 
-/* One click into a fully populated account, handy for demos and viva. */
-document.querySelector('#demoBtn').addEventListener('click', () => {
-  const users = getUsers();
-  const email = E('demo');
-  if (!users[email]) {
-    users[email] = { name: 'Demo Student', email, password: null, role: 'student', dept: 'BCA · 2nd year', joined: today(), suspended: false };
-    setUsers(users);
-  }
-  finishLogin(users[email]);
-});
